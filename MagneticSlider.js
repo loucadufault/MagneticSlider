@@ -2,7 +2,9 @@ import React from "react";
 import Slider from "@material-ui/core/Slider";
 
 
+// move to constants file for self-doc
 const DEFAULT_MAGNETIC_RADIUS = 100;
+const DEFAULT_MAGNETIC_SCALE = 1;
 const DEFAULT_MAGNETIC_BOUNDARY_DEADZONE = 0;
 
 const DEFAULT_DEFAULT_VALUE = 0; // we follow material-ui's convention of falling back to 0 if no value or default value is given
@@ -33,7 +35,8 @@ function MagneticSlider(props) {
     ...otherProps
   } = props;
 
-  function computeMagneticTarget(value, lowNeighbourMark, highNeighbourMark) {
+
+  function computeMagneticTarget(value, lowNeighbourMark, highNeighbourMark) { // should this be wrapped in a effect or callback hook to prevent uneccessary recreation?
     if (lowNeighbourMark === undefined && highNeighbourMark === undefined) {
       return null;
     } else if (lowNeighbourMark === undefined) {
@@ -146,6 +149,12 @@ function withSortedMarks(WrappedMagneticSliderComponent) {
     const sortedMarks = props.hasOwnProperty("marks")
       ? [...marks].sort((a, b) => a.value - b.value)
       : [];
+
+    sortedMarks.forEach((mark) => {
+      if (!mark.hasOwnProperty("magneticScale")) {
+        mark.magneticScale = DEFAULT_MAGNETIC_SCALE;
+      }
+    }); // could also apply the default when they are checked (e.g. `highNeighbourMark.magneticScale || DEFAULT_MAGNETIC_SCALE`) to save one O(n)
 
     const cleanedMarks = props.hasOwnProperty("marks")
       ? [...marks].map((mark) => {

@@ -18,7 +18,7 @@ Inspired by [this StackOverflow question](https://stackoverflow.com/questions/62
 
 
 ```js
-import MagneticSlider from "./MagneticSlider";
+import MagneticSlider from "magnetic-slider";
 
 <MagneticSlider
   magneticRadius={2}

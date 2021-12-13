@@ -4,7 +4,7 @@
   "description": "A lightweight extension of @material-ui's Slider component complying to a super-set of its API spec, that enables the thumb to snap to nearby marks on the slider with configurable behaviour.",
   "main": "lib/MagneticSlider.js",
   "scripts": {
-    "prepublish": "rm -rf lib && NODE_ENV=production babel src --out-dir lib",
+    "prepare": "rm -rf lib && NODE_ENV=production babel src --out-dir lib",
     "test": "npm run test"
   },
   "repository": {
@@ -32,6 +32,7 @@
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0"
   }

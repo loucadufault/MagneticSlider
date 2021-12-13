@@ -18,19 +18,30 @@ Inspired by [this StackOverflow question](https://stackoverflow.com/questions/62
 
 
 ```js
+import React from "react";
+import ReactDOM from "react-dom";
+
 import MagneticSlider from "magnetic-slider";
 
-<MagneticSlider
-  magneticRadius={2}
-  marks={[
-    [0, 20, 37, 100].map((temperature) => ({
-      value: temperature,
-      label: `${temperature}°C`,
-      // magneticScale: 1
-     }))
-  ]}
-/>
+function App() {
+  return (
+    <MagneticSlider
+      magneticRadius={2}
+      marks={
+        [0, 20, 37, 100].map((temperature) => ({
+          value: temperature,
+          label: `${temperature}°C`
+          // magneticScale: 1
+        }))
+      }
+    />
+  );
+}
+
+ReactDOM.render(<App />, document.querySelector("#app"));
 ```
+
+[Live demo](https://codesandbox.io/s/magneticslider-usage-khhb7)
 
 # Documentation
 

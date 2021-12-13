@@ -17,7 +17,7 @@ Inspired by [this StackOverflow question](https://stackoverflow.com/questions/62
 # Usage
 
 
-```
+```js
 import MagneticSlider from "./MagneticSlider";
 
 <MagneticSlider

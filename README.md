@@ -12,21 +12,25 @@ Inspired by [this StackOverflow question](https://stackoverflow.com/questions/62
 
 # Installation
 
-[none yet]
+`npm i magnetic-slider`
 
 # Usage
 
-Obtain the source code for the component by cloning the repository or copying the source code in the [`MagneticSlider.js`](./MagneticSlider.js) file. 
-
-Then add the file named `MagneticSlider.js` containing the source code to your project.
-
-Lastly, import the file's default export to use the component.
 
 ```
 import MagneticSlider from "./MagneticSlider";
-```
 
-*TODO: publish as an npm package.*
+<MagneticSlider
+  magneticRadius={2}
+  marks={[
+    [0, 20, 37, 100].map((temperature) => ({
+      value: temperature,
+      label: `${temperature}°C`,
+      // magneticScale: 1
+     }))
+  ]}
+/>
+```
 
 # Documentation
 
